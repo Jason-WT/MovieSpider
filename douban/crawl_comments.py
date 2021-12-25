@@ -176,6 +176,6 @@ class CrawlComments:
 
 if __name__ == "__main__":
     url = "https://movie.douban.com/subject/30346880/comments?start=%d&limit=20&status=P&sort=new_score"
-    craw_spider = CrawlComments(url, 'your_account', 'your_password', True, "the_bankers_douban.csv")
+    craw_spider = CrawlComments(url, 'your_account', 'your_password', True, "data/the_bankers_douban.csv")
     craw_spider.start_crawl()
 

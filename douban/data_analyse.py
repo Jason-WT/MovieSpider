@@ -22,7 +22,7 @@ class DataAnalyse:
         self.punctuation = zhon.hanzi.punctuation + string.punctuation
         self._load_stop_words()
 
-    def _load_stop_words(self, path="all_stopwords.txt"):
+    def _load_stop_words(self, path="../utils/all_stopwords.txt"):
         lines = open(path, 'r', encoding='utf-8').readlines()
         for line in lines:
             self.stop_words.append(line.strip())
@@ -137,9 +137,9 @@ class DataAnalyse:
 #         print("gt", gt_wf)
 #         print("lt", lt_wf)
         
-        _generate_wc(gt_wf, 'ge_%d_top_%d.png' % (rate_threshold, topk))
-        _generate_wc(lt_wf, 'lt_%d_top_%d.png' % (rate_threshold, topk))
+        _generate_wc(gt_wf, 'figures/ge_%d_top_%d.png' % (rate_threshold, topk))
+        _generate_wc(lt_wf, 'figures/lt_%d_top_%d.png' % (rate_threshold, topk))
 
 if __name__ == "__main__":
-    DA = DataAnalyse("the_bankers_douban.csv")
+    DA = DataAnalyse("data/the_bankers_douban.csv")
     DA.analyse(4, 100)
