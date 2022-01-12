@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 import json
+
 HEADER={
     'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36',
 #     'Content-Type": "application/json'
@@ -17,3 +18,8 @@ HEADER={
 #     'accept-language':'zh-CN,zh;q=0.9',
 #     'connection': 'keep-alive',
 }
+
+EMAIL_ACCOUNT = ""
+EMAIL_PASSWORD = open("email_password").readlines()[0].strip()
+DST_EMAIL = ""
+MAIL_HOST = "smtp.qq.com"
