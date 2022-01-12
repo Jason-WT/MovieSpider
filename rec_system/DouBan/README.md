@@ -1,6 +1,6 @@
 # 手写推荐系统
 
-## V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
+## \[WIP\]V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
 主要是参考亚马逊的经典paper: [paper-link](https://ieeexplore.ieee.org/document/1167344)
 
 ### TBD
