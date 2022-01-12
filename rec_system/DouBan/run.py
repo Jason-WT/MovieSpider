@@ -1,5 +1,6 @@
 from rec_by_self_v1 import RecBySelf
 import argparse
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--account_id')
@@ -9,7 +10,8 @@ if __name__ == "__main__":
     parser.add_argument('--content_type', default=None)
     parser.add_argument('--country', default=None)
     parser.add_argument('--debug', default=False)
+    parser.add_argument('--send_email', default=False)
     args = parser.parse_args()
     print(args)
-    rec_obj = RecBySelf('cookies', args.account_id, args.topk, args.rate, args.duration, args.content_type, args.country, debug=args.debug)
+    rec_obj = RecBySelf('cookies', args.account_id, args.topk, args.rate, args.duration, args.content_type, args.country, debug=args.debug, send_email=args.send_email)
     rec_obj.recommend()

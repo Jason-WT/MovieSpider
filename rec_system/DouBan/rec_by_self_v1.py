@@ -8,6 +8,7 @@ import datetime
 import re
 import random
 import time
+from utils import send_mail
 
 class MovieInfo():
     def __init__(self, type_list, date, duration, country, rate, name, m_id, link):
@@ -32,7 +33,7 @@ class MovieInfo():
 
 class RecBySelf():
     
-    def __init__(self, cookie_path, account_id, topk=10, rate_thres=0.0, duration_thres=0.0, content_type=None, country=None, debug=False):
+    def __init__(self, cookie_path, account_id, topk=10, rate_thres=0.0, duration_thres=0.0, content_type=None, country=None, debug=False, send_email=False):
         self.cookie_path = cookie_path
         self.topk = topk
         self.account_id = account_id
@@ -41,6 +42,7 @@ class RecBySelf():
         self.content_type = content_type.strip() if content_type is not None else None
         self.country = country.strip() if country is not None else None
         self.debug = debug
+        self.send_email = send_email
         self.url_prefix = 'https://movie.douban.com/'
         self.url_suffix = '/wish?start=0&sort=time&rating=all&filter=all&mode=grid'
         self.cur_url = self.url_prefix + 'people/' + str(self.account_id) + self.url_suffix
@@ -208,8 +210,18 @@ class RecBySelf():
         selected_keys = random.sample(keys, self.topk)
         print('I found that you have collect %d movies' % len(self.movie_infos))
         print('I recommend top %d for you to watch' % self.topk)
+        # name rate type duration country
+        content_format ="<p>%s, %s, %s, %s, %s   <a href=%s>Douban Link</a></p>"
+        content = "<p>Happy Weekend~</p><p>Enjoy your movie time~</p><p>Recommend %d movies for you</p>" % self.topk
+        content = "<p>Name, Rate, Duration, Types, Country, Douban Link</p>"
         for k in selected_keys:
-            print(self.movie_infos[k].name, self.movie_infos[k].link)
+            m_info = self.movie_infos[k]
+            content += content_format % (m_info.name, m_info.rate, m_info.duration, "/".join(m_info.type_list), m_info.country, m_info.link)
+            # print(self.movie_infos[k].name, self.movie_infos[k].link)
+        if self.send_email:
+            send_mail(conf.EMAIL_ACCOUNT, conf.EMAIL_PASSWORD, conf.DST_EMAIL, conf.MAIL_HOST, content)
+        else:
+            print(content)
 
 if __name__ == "__main__":
     rec_obj = RecBySelf('cookies', 175455903, 4, debug=True)

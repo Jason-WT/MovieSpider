@@ -1,6 +1,7 @@
 # 手写推荐系统
 
-## V2 基于协同过滤的推荐系统
+## V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
+主要是参考亚马逊的经典paper: [paper-link](https://ieeexplore.ieee.org/document/1167344)
 
 ### TBD
 
@@ -25,17 +26,25 @@
   - 时长策略：筛选掉时长大于阈值的电影（现在的电影都太长了， 动不动就两三个小时起步。。。）
   - 国家策略：筛选掉非指定国家的电影
 
-（还有很多乱七八糟的策略其实都可以加入，比如上映时间等，但预期后面通过算法来做，不整这些硬规则了，代码圣经：又不是不能用）
+
+还有很多乱七八糟的策略其实都可以加入：  
+- [UCB策略](https://zhuanlan.zhihu.com/p/32356077)
+- 打散策略
+- 新鲜度策略
+- ...
+
+但预期后面通过算法来做，不整这些硬规则了，代码圣经：又不是不能用
 ### 使用方法
 - 将浏览器中豆瓣的cookies copy出来放到本目录下的cookies文件中  
 - 执行命令：  
-`python run.py --account_id 175455903 --topk 5 --rate 8.0 --duration 120 --country 美国 --content_type 剧情`
+`python run.py --account_id 175455903 --topk 5 --rate 8.0 --duration 120 --country 美国 --content_type 剧情 --send_email True`
   - account_id: 豆瓣上给的id，很早以前的id应该是按照名字来的；后来的id是数字，可以去豆瓣的链接上找找，一般是people/后面的这一串数字
-  - topk: 最后给推荐的个数
+  - topk: 最后推荐的个数
   - rate: 得分阈值，小于该阈值会被过滤掉
   - duration: 时长阈值，大于该阈值会被过滤掉
   - country: 不是这个country的电影会被过滤掉
   - content_type: 不是这个类型的电影会被过滤掉
+  - send_email: 是否将推荐结果推送到指定邮箱，邮箱的配置在conf.py下，所见即所得，密码放在本目录的email_password文件里
 
 ### 示例结果
 （用老板的账号做个测2333）
