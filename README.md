@@ -65,7 +65,7 @@ Ref:
 
 # Spiders
 这里是一些爬虫的小脚本\~欢迎自取\~  
-For DouBan: `python crawl\_comments.py && python data\_analyse.py`  
-For IMDB: `python crawl\_comments.py && python data\_analyse.py ***.csv 100`
+For DouBan: `python crawl_comments.py && python data_analyse.py`  
+For IMDB: `python crawl_comments.py && python data_analyse.py ***.csv 100`
 
 
