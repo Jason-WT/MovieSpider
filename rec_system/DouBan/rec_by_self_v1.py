@@ -198,7 +198,7 @@ class RecBySelf():
             if cur_url == None or cur_url == '':
                 break
             cur_url = self.url_prefix + cur_url
-            if self.debug and index > 2:
+            if self.debug and index > 1:
                 break
             if len(self.movie_infos) % 20 == 0:
                 print('Thx for ur patience, I have collected %d films which you like, I will recommend some to you later' % len(self.movie_infos))
@@ -211,9 +211,9 @@ class RecBySelf():
         print('I found that you have collect %d movies' % len(self.movie_infos))
         print('I recommend top %d for you to watch' % self.topk)
         # name rate type duration country
-        content_format ="<p>%s, %s, %s, %s, %s   <a href=%s>Douban Link</a></p>"
+        content_format ="<p>%s, %s, %smin, %s, %s   <a href=%s>Douban Link</a></p>"
         content = "<p>Happy Weekend~</p><p>Enjoy your movie time~</p><p>Recommend %d movies for you</p>" % self.topk
-        content = "<p>Name, Rate, Duration, Types, Country, Douban Link</p>"
+        content += "<p>Name, Rate, Duration, Types, Country, Douban Link</p>"
         for k in selected_keys:
             m_info = self.movie_infos[k]
             content += content_format % (m_info.name, m_info.rate, m_info.duration, "/".join(m_info.type_list), m_info.country, m_info.link)
