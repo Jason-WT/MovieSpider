@@ -3,8 +3,14 @@
 Just for fun;  Don't be serious
 
 # Recommendation System
-## \[WIP\] V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
-主要是参考亚马逊的经典paper: [paper-link](https://ieeexplore.ieee.org/document/1167344)
+
+## V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
+主要分为两种：Item-Based && User-Based Collaborative Filtering
+
+Ref: 
+- [Amazon.com recommendations: item-to-item collaborative filtering](https://ieeexplore.ieee.org/document/1167344)
+- [Item-Based Collaborative Filtering Recommendation Algorithms](https://www.ra.ethz.ch/cdstore/www10/papers/pdf/p519.pdf)
+- [User-based Collaborative-Filtering Recommendation Algorithms on Hadoop](https://www.researchgate.net/profile/Zhi-Dan-Zhao/publication/221306166_User-Based_Collaborative-Filtering_Recommendation_Algorithms_on_Hadoop/links/00b4952b5448b902d5000000/User-Based-Collaborative-Filtering-Recommendation-Algorithms-on-Hadoop.pdf)
 
 ### TBD
 
@@ -36,6 +42,8 @@ Just for fun;  Don't be serious
 - ...
 
 但预期后面通过算法来做，不整这些硬规则了，代码圣经：又不是不能用
+
+![lyh](./rec_system/DouBan/figures/lyh.png)
 
 ### 使用方法
 - 将浏览器中豆瓣的cookies copy出来放到本目录下的cookies文件中；
