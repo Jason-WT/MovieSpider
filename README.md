@@ -3,6 +3,7 @@
 Just for fun;  Don't be serious
 
 # Recommendation System
+
 ## V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
 主要分为两种：Item-Based && User-Based Collaborative Filtering
 
@@ -63,7 +64,7 @@ Ref:
 
 
 # Spiders
-这里是一些爬虫的小脚本~欢迎自取~  
+这里是一些爬虫的小脚本\~欢迎自取\~  
 For DouBan: `python crawl_comments.py && python data_analyse.py`  
 For IMDB: `python crawl_comments.py && python data_analyse.py ***.csv 100`
 
