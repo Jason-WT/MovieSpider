@@ -4,7 +4,7 @@ Just for fun;  Don't be serious
 
 # Recommendation System
 
-## V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
+## V2 基于[协同过滤](https://zh.wikipedia.org/zh-hans/%E5%8D%94%E5%90%8C%E9%81%8E%E6%BF%BE)的推荐系统
 主要分为两种：Item-Based && User-Based Collaborative Filtering
 
 Ref: 
@@ -58,10 +58,9 @@ Ref:
   - send_email: 是否将推荐结果推送到指定邮箱，邮箱的配置在conf.py下，所见即所得，密码放在本目录的email_password文件里
 
 ### 示例结果
-用张老板的账号做个测2333
+用张老板的账号做个测试2333
 
 ![张一鸣的](./rec_system/DouBan/figures/zym.png)
-
 
 # Spiders
 这里是一些爬虫的小脚本\~欢迎自取\~  

@@ -1,18 +1,23 @@
 # 手写推荐系统
 
-## \[WIP\]V2 基于[协同过滤](https://ieeexplore.ieee.org/document/1167344)的推荐系统
-主要是参考亚马逊的经典paper: [paper-link](https://ieeexplore.ieee.org/document/1167344)
+## V2 基于[协同过滤](https://zh.wikipedia.org/zh-hans/%E5%8D%94%E5%90%8C%E9%81%8E%E6%BF%BE)的推荐系统
+主要分为两种：Item-Based && User-Based Collaborative Filtering
+
+Ref: 
+- [Amazon.com recommendations: item-to-item collaborative filtering](https://ieeexplore.ieee.org/document/1167344)
+- [Item-Based Collaborative Filtering Recommendation Algorithms](https://www.ra.ethz.ch/cdstore/www10/papers/pdf/p519.pdf)
+- [User-based Collaborative-Filtering Recommendation Algorithms on Hadoop](https://www.researchgate.net/profile/Zhi-Dan-Zhao/publication/221306166_User-Based_Collaborative-Filtering_Recommendation_Algorithms_on_Hadoop/links/00b4952b5448b902d5000000/User-Based-Collaborative-Filtering-Recommendation-Algorithms-on-Hadoop.pdf)
 
 ### TBD
 
 ## V1 基于规则random推荐系统
 
 > date: 2022-01-09  
-> code: rec_by_self_v1.py  
+> code: rec_system/DouBan/rec_by_self_v1.py  
 > 说人话：丐中丐版的推荐系统
 
 ### 背景
-目前豆瓣上的「想看」list，只有简单的按照「收藏时间」、「评分」、「标题」排序的功能，给豆瓣提了需求，豆瓣说收到以后也没有后文了；抱着“求人不如求己”的心态，自己手撸个脚本，根据自己的喜好来进行推荐，实现定制化（in other words: 在下自己的代码，爱咋折腾咋折腾）
+目前豆瓣上的「想看」list，只有简单的按照「收藏时间」、「评分」、「标题」排序的功能，给豆瓣提了需求，豆瓣说收到以后也没有后文了；抱着“求人不如求己”的心态，自己手撸个简单的推荐系统，根据自己的喜好来进行推荐，实现定制化（in other words: 在下自己的代码，爱咋折腾咋折腾）
 ![chat with douban pm](./figures/chat_log.png)
 
 ### 方案
@@ -26,7 +31,6 @@
   - 时长策略：筛选掉时长大于阈值的电影（现在的电影都太长了， 动不动就两三个小时起步。。。）
   - 国家策略：筛选掉非指定国家的电影
 
-
 还有很多乱七八糟的策略其实都可以加入：  
 - [UCB策略](https://zhuanlan.zhihu.com/p/32356077)
 - 打散策略
@@ -38,7 +42,7 @@
 ![lyh](./figures/lyh.png)
 
 ### 使用方法
-- 将浏览器中豆瓣的cookies copy出来放到本目录下的cookies文件中  
+- 将浏览器中豆瓣的cookies copy出来放到本目录下的cookies文件中；
 - 执行命令：  
 `python run.py --account_id 175455903 --topk 5 --rate 8.0 --duration 120 --country 美国 --content_type 剧情 --send_email True`
   - account_id: 豆瓣上给的id，很早以前的id应该是按照名字来的；后来的id是数字，可以去豆瓣的链接上找找，一般是people/后面的这一串数字
@@ -50,5 +54,6 @@
   - send_email: 是否将推荐结果推送到指定邮箱，邮箱的配置在conf.py下，所见即所得，密码放在本目录的email_password文件里
 
 ### 示例结果
-（用老板的账号做个测2333）
+用张老板的账号做个测试2333
+
 ![张一鸣的](./figures/zym.png)
