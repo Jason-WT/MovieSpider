@@ -211,7 +211,7 @@ class RecBySelf():
         print('I found that you have collect %d movies' % len(self.movie_infos))
         print('I recommend top %d for you to watch' % self.topk)
         # name rate type duration country
-        content_format ="<p>%s, %d, %smin, %s, %s   <a href=%s>Douban Link</a></p>"
+        content_format ="<p>%s, %f, %smin, %s, %s   <a href=%s>Douban Link</a></p>"
         content = "<p>Happy Weekend~</p><p>Enjoy your movie time~</p><p>Recommend %d movies for you</p>" % self.topk
         content += "<p>Name, Rate, Duration, Types, Country, Douban Link</p>"
         for k in selected_keys:
