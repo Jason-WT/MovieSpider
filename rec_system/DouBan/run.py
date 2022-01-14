@@ -5,7 +5,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--account_id')
     parser.add_argument('--topk', type=int, default=5)
-    parser.add_argument('--rate', type=float, default=0.0)
+    parser.add_argument('--rate', type=float, default=8.0)
     parser.add_argument('--duration', type=float, default=2000)
     parser.add_argument('--content_type', default=None)
     parser.add_argument('--country', default=None)
