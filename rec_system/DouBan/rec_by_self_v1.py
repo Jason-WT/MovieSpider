@@ -11,7 +11,7 @@ import time
 from utils import send_mail
 
 class MovieInfo():
-    def __init__(self, type_list, date, duration, country, rate, name, m_id, link):
+    def __init__(self, type_list, date, duration, rate, country, name, m_id, link):
         self.type_list = type_list
         self.date = date
         self.duration = duration
@@ -33,7 +33,7 @@ class MovieInfo():
 
 class RecBySelf():
     
-    def __init__(self, cookie_path, account_id, topk=10, rate_thres=0.0, duration_thres=0.0, content_type=None, country=None, debug=False, send_email=False):
+    def __init__(self, cookie_path, account_id, topk=10, rate_thres=8.0, duration_thres=0.0, content_type=None, country=None, debug=False, send_email=False):
         self.cookie_path = cookie_path
         self.topk = topk
         self.account_id = account_id
@@ -211,7 +211,7 @@ class RecBySelf():
         print('I found that you have collect %d movies' % len(self.movie_infos))
         print('I recommend top %d for you to watch' % self.topk)
         # name rate type duration country
-        content_format ="<p>%s, %s, %smin, %s, %s   <a href=%s>Douban Link</a></p>"
+        content_format ="<p>%s, %d, %smin, %s, %s   <a href=%s>Douban Link</a></p>"
         content = "<p>Happy Weekend~</p><p>Enjoy your movie time~</p><p>Recommend %d movies for you</p>" % self.topk
         content += "<p>Name, Rate, Duration, Types, Country, Douban Link</p>"
         for k in selected_keys:
